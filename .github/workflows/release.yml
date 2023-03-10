@@ -20,7 +20,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # check out the repository afterwards
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.3.0
 
       # fetch branches and switch to the temporary branch
       - name: switch to new branch
@@ -29,7 +29,7 @@ jobs:
       # create release info and push it upstream
       - name: conventional Changelog Action
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
+        uses: TriPSs/conventional-changelog-action@v3.18.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           version-file: "./package.json,./package-lock.json"
@@ -53,7 +53,7 @@ jobs:
 
       # release info is now in master so we can continue as before
       - name: create release with last commit
-        uses: actions/create-release@v1
+        uses: actions/create-release@v1.1.4
         if: steps.changelog.outputs.skipped == 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
