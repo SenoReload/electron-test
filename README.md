@@ -1,2 +1,2 @@
 # electron-test
-Electron Setup
+Electron Setup. Basic App.
